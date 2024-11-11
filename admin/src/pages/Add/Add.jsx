@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import './Add.css'
 import {assets} from '../../assets/assets'
-
+import axios from "axios"
 const Add = () => {
-
+    const url='http://localhost:4000'
     const [image,setImage] =useState(false);
     const [data,setData] = useState({
         name:"",
@@ -20,12 +20,32 @@ const Add = () => {
     }
 
     const onSubmitHandler = async (event)=>{
-        event.preventDefault()
+        event.preventDefault();
+        const formData = new FormData();
+        formData.append("name",data.name)
+        formData.append("description",data.description)
+        formData.append("price",data.price)
+        formData.append("category",data.category)
+        formData.append("image",image)
+
+        const response = await axios.post(`${url}/api/food/add` ,formData);
+
+        if (!response.data.sucess) {
+            setData({
+                name:"",
+                description:"",
+                price:"",
+                category:"Salad"
+            })
+            setImage(false)
+            console.log("sucess")
+        }
+        else{
+            console.log("this not working")
+        }
     }
 
-    useEffect(()=>{
-        console.log(data);
-    },[data])
+  
 
   return (
     <div className='add'>
