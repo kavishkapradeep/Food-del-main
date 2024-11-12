@@ -16,10 +16,10 @@ import fs from 'fs'
 
              try {
                 await food.save();
-                res.json({sucess:true,message:"Food Added"})
+                res.json({success:true,message:"Food Added"})
              } catch (error) {
                 console.log(error)
-                res.json({sucess:false,message:"Error"})
+                res.json({success:false,message:"Error"})
              }
 
     }
@@ -28,10 +28,10 @@ import fs from 'fs'
     const listFood = async (req,res)=>{
         try {
             const foods = await foodModel.find({});
-            res.json({sucess:true,data:foods})
+            res.json({success:true,data:foods})
         } catch (error) {
             console.log(error);
-            res.json({sucess:false,message:"Error"})
+            res.json({success:false,message:"Error"})
         }
     }
 
@@ -46,7 +46,7 @@ import fs from 'fs'
             res.json({success:true,message:"Food Removed"})
         } catch (error) {
             console.log(error)
-            res.json({sucess:false,message:"Error"})
+            res.json({success:false,message:"Error"})
         }
     }
 

@@ -4,8 +4,9 @@ import {assets} from '../../assets/assets'
 import axios from "axios"
 import { toast } from 'react-toastify'
 
-const Add = () => {
-    const url='http://localhost:4000'
+const Add = ({url}) => {
+    
+    
     const [image,setImage] =useState(false);
     const [data,setData] = useState({
         name:"",
@@ -32,7 +33,7 @@ const Add = () => {
 
         const response = await axios.post(`${url}/api/food/add` ,formData);
 
-        if (response.data.sucess===true) {
+        if (response.data.success) {
             setData({
                 name:"",
                 description:"",
@@ -40,7 +41,7 @@ const Add = () => {
                 category:"Salad"
             })
             setImage(false)
-            console.log("sucess")
+            console.log("success")
             toast.success(response.data.message)
         }
         else{
