@@ -30,7 +30,7 @@ const Add = () => {
 
         const response = await axios.post(`${url}/api/food/add` ,formData);
 
-        if (!response.data.sucess) {
+        if (response.data.sucess===true) {
             setData({
                 name:"",
                 description:"",
