@@ -2,6 +2,8 @@ import React, {  useState } from 'react'
 import './Add.css'
 import {assets} from '../../assets/assets'
 import axios from "axios"
+import { toast } from 'react-toastify'
+
 const Add = () => {
     const url='http://localhost:4000'
     const [image,setImage] =useState(false);
@@ -39,9 +41,11 @@ const Add = () => {
             })
             setImage(false)
             console.log("sucess")
+            toast.success(response.data.message)
         }
         else{
             console.log("this not working")
+            toast.error(response.data.message)
         }
     }
 
