@@ -9,9 +9,6 @@ const LoginPopup = ({setShowLogin}) => {
 
     const {url,token,setToken} =useContext(StoreContext)
     const [currState,setCurrState] = useState("Login")
-
-
-
     const [data,setData] = useState({
         name:"",
         email:"",
@@ -27,7 +24,7 @@ const LoginPopup = ({setShowLogin}) => {
     const onLogin = async (event) =>{
         event.preventDefault();
         let newUrl =url;
-        if (currState==="login") {
+        if (currState==="Login") {
             newUrl+="/api/user/login"
         }else{
             newUrl +="/api/user/register"
