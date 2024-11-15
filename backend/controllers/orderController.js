@@ -23,7 +23,7 @@ const placeOrder = async (req,res)=>{
 
         const line_items = req.body.items.map((item)=>({
             price_data:{
-                currency:"inr",//if error change this to euro
+                currency:"aud",//if error change this to euro
                 product_data:{
                     name:item.name
                 },
@@ -35,7 +35,7 @@ const placeOrder = async (req,res)=>{
         line_items.push({
 
             price_data:{
-                currency:"inr",
+                currency:"aud",
                 product_data:{
                     name:"Delivery Charges"
                 },
