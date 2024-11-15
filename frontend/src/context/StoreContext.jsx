@@ -56,6 +56,7 @@ const StoreContextProvider =(props)=>{
        }
 
        useEffect(()=>{
+            //database data  load
             
             async function loadData() {
                 await fetchFoodList()
