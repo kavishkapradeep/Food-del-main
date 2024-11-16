@@ -25,16 +25,14 @@ const Orders = ({url}) => {
           orderId,
           status:event.target.value
       })
-        if (response.target.success) {
+        if (response.data.success) {
           await fetchAllOrders();
-        } else {
-          
-        }      
+        } 
   }
-
   useEffect(()=>{
     fetchAllOrders();
-  },[])
+  },[])  
+  
   return (
     <div className='order add'>
         <h3>Order Page</h3>
